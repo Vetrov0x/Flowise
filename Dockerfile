@@ -6,10 +6,11 @@ FROM node:18-alpine
 
 WORKDIR /usr/src/packages
 
+RUN yarn install
 # Copy root package.json and lockfile
 COPY package.json ./
 COPY yarn.lock ./
-RUN yarn install
+
 # Copy components package.json
 COPY packages/components/package.json ./packages/components/package.json
 
