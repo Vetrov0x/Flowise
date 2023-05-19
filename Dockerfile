@@ -6,7 +6,7 @@ FROM node:18-alpine
 
 WORKDIR /usr/src/packages
 
-RUN yarn install
+
 # Copy root package.json and lockfile
 COPY package.json ./
 COPY yarn.lock ./
@@ -20,7 +20,7 @@ COPY packages/ui/package.json ./packages/ui/package.json
 # Copy server package.json
 COPY packages/server/package.json ./packages/server/package.json
 
-
+RUN yarn install
 
 # Copy app source
 COPY . .
